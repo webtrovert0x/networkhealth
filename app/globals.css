@@ -1,0 +1,79 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #0f172a;
+  --surface: #1e293b;
+  --surface-border: #334155;
+  --text-main: #f8fafc;
+  --text-muted: #94a3b8;
+  --primary: #2563eb;
+  --primary-hover: #1d4ed8;
+  --success: #16a34a;
+  --danger: #dc2626;
+  --warning: #d97706;
+}
+
+body {
+  background-color: #0b1120;
+  color: #f1f5f9;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* Flat UI styles - no gloss, no gradients */
+.flat-card {
+  background-color: #111827;
+  border: 1px solid #1f2937;
+  border-radius: 6px;
+}
+
+.flat-card-subtle {
+  background-color: #172033;
+  border: 1px solid #283548;
+  border-radius: 6px;
+}
+
+.flat-input {
+  background-color: #0d131f;
+  border: 1px solid #283548;
+  color: #f8fafc;
+  border-radius: 4px;
+}
+
+.flat-input:focus {
+  outline: none;
+  border-color: #3b82f6;
+}
+
+.flat-button-primary {
+  background-color: #2563eb;
+  color: #ffffff;
+  border: 1px solid #1d4ed8;
+  border-radius: 4px;
+}
+
+.flat-button-primary:hover {
+  background-color: #1d4ed8;
+}
+
+.flat-button-primary:disabled {
+  background-color: #374151;
+  border-color: #4b5563;
+  color: #9ca3af;
+  cursor: not-allowed;
+}
+
+.flat-button-secondary {
+  background-color: #1f2937;
+  color: #e5e7eb;
+  border: 1px solid #374151;
+  border-radius: 4px;
+}
+
+.flat-button-secondary:hover {
+  background-color: #374151;
+}
+

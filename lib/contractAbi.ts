@@ -1,0 +1,86 @@
+export const BOT_NETWORK_HEALTH_ABI = [
+  {
+    inputs: [
+      { internalType: 'bytes32', name: 'endpointConfigurationHash', type: 'bytes32' },
+      { internalType: 'uint256', name: 'fromBlock', type: 'uint256' },
+      { internalType: 'uint256', name: 'toBlock', type: 'uint256' },
+    ],
+    name: 'requestNetworkInspection',
+    outputs: [{ internalType: 'bytes32', name: 'requestId', type: 'bytes32' }],
+    stateMutability: 'nonpayable',
+    type: 'function',
+  },
+  {
+    inputs: [
+      { internalType: 'bytes32', name: 'requestId', type: 'bytes32' },
+      { internalType: 'bytes32', name: 'reportHash', type: 'bytes32' },
+    ],
+    name: 'publishResult',
+    outputs: [],
+    stateMutability: 'nonpayable',
+    type: 'function',
+  },
+  {
+    inputs: [{ internalType: 'bytes32', name: 'requestId', type: 'bytes32' }],
+    name: 'getRequest',
+    outputs: [
+      { internalType: 'bytes32', name: 'id', type: 'bytes32' },
+      { internalType: 'address', name: 'requester', type: 'address' },
+      { internalType: 'bytes32', name: 'endpointConfigurationHash', type: 'bytes32' },
+      { internalType: 'uint256', name: 'fromBlock', type: 'uint256' },
+      { internalType: 'uint256', name: 'toBlock', type: 'uint256' },
+      { internalType: 'uint256', name: 'requestedAt', type: 'uint256' },
+      { internalType: 'bytes32', name: 'reportHash', type: 'bytes32' },
+      { internalType: 'uint256', name: 'publishedAt', type: 'uint256' },
+      { internalType: 'bool', name: 'isCompleted', type: 'bool' },
+    ],
+    stateMutability: 'view',
+    type: 'function',
+  },
+  {
+    inputs: [],
+    name: 'totalRequests',
+    outputs: [{ internalType: 'uint256', name: '', type: 'uint256' }],
+    stateMutability: 'view',
+    type: 'function',
+  },
+  {
+    inputs: [{ internalType: 'uint256', name: 'limit', type: 'uint256' }],
+    name: 'getRecentRequestIds',
+    outputs: [{ internalType: 'bytes32[]', name: '', type: 'bytes32[]' }],
+    stateMutability: 'view',
+    type: 'function',
+  },
+  {
+    inputs: [{ internalType: 'address', name: 'user', type: 'address' }],
+    name: 'getUserRequests',
+    outputs: [{ internalType: 'bytes32[]', name: '', type: 'bytes32[]' }],
+    stateMutability: 'view',
+    type: 'function',
+  },
+  {
+    anonymous: false,
+    inputs: [
+      { indexed: true, internalType: 'bytes32', name: 'requestId', type: 'bytes32' },
+      { indexed: true, internalType: 'address', name: 'requester', type: 'address' },
+      { indexed: true, internalType: 'bytes32', name: 'endpointConfigurationHash', type: 'bytes32' },
+      { indexed: false, internalType: 'uint256', name: 'fromBlock', type: 'uint256' },
+      { indexed: false, internalType: 'uint256', name: 'toBlock', type: 'uint256' },
+      { indexed: false, internalType: 'uint256', name: 'timestamp', type: 'uint256' },
+    ],
+    name: 'InspectionRequested',
+    type: 'event',
+  },
+  {
+    anonymous: false,
+    inputs: [
+      { indexed: true, internalType: 'bytes32', name: 'requestId', type: 'bytes32' },
+      { indexed: true, internalType: 'address', name: 'publisher', type: 'address' },
+      { indexed: true, internalType: 'bytes32', name: 'reportHash', type: 'bytes32' },
+      { indexed: false, internalType: 'uint256', name: 'timestamp', type: 'uint256' },
+    ],
+    name: 'ResultPublished',
+    type: 'event',
+  },
+] as const;
+
